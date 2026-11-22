@@ -1,9 +1,9 @@
-Warning: truncated output (original token count: 4426)
+Warning: truncated output (original token count: 4440)
 Total output lines: 104
 
 # fm1-sampler
 
-A **sampler + audio looper** (8 tracks) for Android with the M-VAVE FM-1 as its hardware front end. The phone does all the sound; the FM-1 is the
+A **sampler + audio looper** (8 tracks) for Android and [iOS](https://github.com/ferluht/fm1-sampler/pull/4) with the M-VAVE FM-1 as its hardware front end. The phone does all the sound; the FM-1 is the
 control surface (keys, buttons, 7 encoders), the second screen (240x240, drawn with SysEx commands) and the audio output (USB audio).
 All DSP is original code in `engine/dsp` (no third-party audio engine); the only library is KissFFT (BSD) for the Paulstretch mode.
 
@@ -55,7 +55,7 @@ One visual system (light by default, dark one tap away): one grid, one line weig
 - **Tape loop**: one closed ribbon over a big and a small wheel (built from common tangents + arcs), it runs once round per loop, the orange dot is the splice = loop start. Without a loop it stands still.
 - **Transport** under it, icons only: PLAY, STOP, REC (OVERDUB when a loop exists), CLEAR (clears the loop of the selected track); the active one is orange with an underline. While recording PLAY / STOP only ends the recording (the loop plays on), the next press stops the tape. Start and stop are tape-like (run-up 0.45 s, slow-down 0.7 s, level follows the speed).
 - **Tools column** (middle, 64 units pitch, the lowest icon on the transport row): theme (light / dark, remembered in `<data dir>/theme`), microphone, file from disk, project menu (`projectSheet`: save / clear loop, clear all (tap twice), loop x2 and /2, loop source, open the editor).
-- **Sample view** (top right), page SAMPLE: the waveform with the playback window dark, the playback mode on top (tap = next mode), one orange line per sounding voice (height follows the voice envelope), the voice count, the tuning fork (auto-tune, MELODIC / ONE-SHOT only). While a microphone take waits for sound the view shows the i…426 tokens truncated…The old editor (EDIT view) is opened from the project menu; its DECK button comes back. It uses the same theme.
+- **Sample view** (top right), page SAMPLE: the waveform with the playback window dark, the playback mode on top (tap = next mode), one orange line per sounding voice (height follows the voice envelope), the voice count, the tuning fork (auto-tune, MELODIC / ONE-SHOT only). Whi…440 tokens truncated…The old editor (EDIT view) is opened from the project menu; its DECK button comes back. It uses the same theme.
 
 **FM-1 screen** (240x240) uses the same system (`SamplerApp::draw`, colours from `ui/Theme.h`, so it follows the phone's theme): track number and sample name, the transport state as the same pictogram, the page name with eight track notches, a 46 px picture of the page (waveform, ADSR, LFO, mixer, key, loop length, microphone level), the loop line, four values (3x pixel font, 2x when longer than six characters) with orange bars, the button hint.
 
