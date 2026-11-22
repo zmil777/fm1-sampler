@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 4426)
+Total output lines: 104
+
 # fm1-sampler
 
 A **sampler + audio looper** (8 tracks) for Android with the M-VAVE FM-1 as its hardware front end. The phone does all the sound; the FM-1 is the
@@ -18,7 +21,7 @@ The same screen while the first loop is recorded (its waveform grows on the time
 ![First take](shots/readme_firstrec_v37.png) ![Microphone](shots/readme_mic_v37.png)
 
 ## Downloads
-APK and the flash page of the matching firmware are attached to the [releases](../../releases) of this repository. Flash the firmware first (SEL = loop length page needs it), then install the APK.
+The matching APK and flash page are attached to each [release](../../releases). Follow the [install guide](INSTALL.md); the Workbench page requires desktop Chrome or Edge and the firmware must be flashed before installing the APK. **The v0.37 firmware has not been verified on the newer FM-1 flash chip. Do not flash it to a newer unit until a compatible build is confirmed.**
 
 ## FM-1 controls
 | Control | Does |
@@ -52,11 +55,7 @@ One visual system (light by default, dark one tap away): one grid, one line weig
 - **Tape loop**: one closed ribbon over a big and a small wheel (built from common tangents + arcs), it runs once round per loop, the orange dot is the splice = loop start. Without a loop it stands still.
 - **Transport** under it, icons only: PLAY, STOP, REC (OVERDUB when a loop exists), CLEAR (clears the loop of the selected track); the active one is orange with an underline. While recording PLAY / STOP only ends the recording (the loop plays on), the next press stops the tape. Start and stop are tape-like (run-up 0.45 s, slow-down 0.7 s, level follows the speed).
 - **Tools column** (middle, 64 units pitch, the lowest icon on the transport row): theme (light / dark, remembered in `<data dir>/theme`), microphone, file from disk, project menu (`projectSheet`: save / clear loop, clear all (tap twice), loop x2 and /2, loop source, open the editor).
-- **Sample view** (top right), page SAMPLE: the waveform with the playback window dark, the playback mode on top (tap = next mode), one orange line per sounding voice (height follows the voice envelope), the voice count, the tuning fork (auto-tune, MELODIC / ONE-SHOT only). While a microphone take waits for sound the view shows the input level and two trigger lines (drag up / down to set the level) and one STOP / CANCEL button; while it records, the growing take (normalised).
-- **Page schematics** (`pageView`, the same place, every other page): FX = a wire cube (the room: size, wet rays) and an echo (a circle and its shrinking repeats: time, feedback); ENV = the ADSR curve; LFO = the shape over a few cycles with the live value as an orange bar; ARP = the notes in pattern order; TAPE = a wave that wobbles, saturates and turns into stairs; MIXER = the last four seconds of the active channel scrolling: its level as a mirrored wave (dim = what it would be, ink = what is left after the sidechain), the source level as an envelope with the dashed threshold, orange where the source is over it, and the reduction in dB; KEY = two octaves with the scale and the root; LOOP = input level against the trigger line; LENGTH = the loop as bars with the playhead. They are computed from the same values as the knobs.
-- **Page**: the name of the current page (orange) with ten notches (tap one = that page, like the FM-1 buttons); under them the four knobs of the page (ring + orange arc + pointer, drag up / down), the same parameters as K1..K4 on the FM-1.
-- **Timeline** (bottom): bar numbers, the waveform of the selected track's loop (played = ink, to come = dim), the orange playhead. Drag = tape scrub (`Session::scrubBegin / scrubMove / scrubEnd`): the tape follows the finger with a smoothed speed (up to 6x, forward and backward, the pitch follows like a hand on a reel, no clicks); when the finger lifts the tape returns to the transport speed or stops where it is. While the first take is recorded its waveform grows here.
-- The old editor (EDIT view) is opened from the project menu; its DECK button comes back. It uses the same theme.
+- **Sample view** (top right), page SAMPLE: the waveform with the playback window dark, the playback mode on top (tap = next mode), one orange line per sounding voice (height follows the voice envelope), the voice count, the tuning fork (auto-tune, MELODIC / ONE-SHOT only). While a microphone take waits for sound the view shows the i…426 tokens truncated…The old editor (EDIT view) is opened from the project menu; its DECK button comes back. It uses the same theme.
 
 **FM-1 screen** (240x240) uses the same system (`SamplerApp::draw`, colours from `ui/Theme.h`, so it follows the phone's theme): track number and sample name, the transport state as the same pictogram, the page name with eight track notches, a 46 px picture of the page (waveform, ADSR, LFO, mixer, key, loop length, microphone level), the loop line, four values (3x pixel font, 2x when longer than six characters) with orange bars, the button hint.
 
